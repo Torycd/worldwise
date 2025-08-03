@@ -5,6 +5,7 @@ import Pricing from "./pages/Pricing";
 import PageNotFound from "./pages/PageNotFound";
 import MainPage from "./pages/MainPage";
 import AppLayout from "./pages/AppLayout";
+import Login from "./pages/Login";
 
 function App() {
   const router = createBrowserRouter([
@@ -27,6 +28,10 @@ function App() {
         {
           path: "pricing",
           element: <Pricing />,
+        },
+        {
+          path: "login",
+          element: <Login />,
         },
         {
           path: "*",
