@@ -4,6 +4,7 @@ import Product from "./pages/Product";
 import Pricing from "./pages/Pricing";
 import PageNotFound from "./pages/PageNotFound";
 import MainPage from "./pages/MainPage";
+import AppLayout from "./pages/AppLayout";
 
 function App() {
   const router = createBrowserRouter([
@@ -18,6 +19,10 @@ function App() {
         {
           path: "product",
           element: <Product />,
+        },
+        {
+          path: "app",
+          element: <AppLayout />,
         },
         {
           path: "pricing",

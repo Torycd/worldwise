@@ -4,7 +4,7 @@ import PageNav from "../components/PageNav";
 function MainPage() {
   return (
     <div>
-      <PageNav />
+      {/* <PageNav /> */}
       <Outlet />
     </div>
   );
