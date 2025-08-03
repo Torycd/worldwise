@@ -3,24 +3,31 @@ import Homepage from "./pages/Homepage";
 import Product from "./pages/Product";
 import Pricing from "./pages/Pricing";
 import PageNotFound from "./pages/PageNotFound";
+import MainPage from "./pages/MainPage";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Homepage />,
-    },
-    {
-      path: "product",
-      element: <Product />,
-    },
-    {
-      path: "pricing",
-      element: <Pricing />,
-    },
-    {
-      path: "*",
-      element: <PageNotFound />,
+      element: <MainPage />,
+      children: [
+        {
+          path: "/",
+          element: <Homepage />,
+        },
+        {
+          path: "product",
+          element: <Product />,
+        },
+        {
+          path: "pricing",
+          element: <Pricing />,
+        },
+        {
+          path: "*",
+          element: <PageNotFound />,
+        },
+      ],
     },
   ]);
 
