@@ -19,7 +19,7 @@ const BASE_URL = "http://localhost:9000";
 function App() {
   const [cities, setCities] = useState([]);
   const [Isloading, setIsLoading] = useState(false);
-  console.log(cities);
+  // console.log(cities);
   useEffect(() => {
     const handleCities = async () => {
       try {
