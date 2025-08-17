@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import {
   createBrowserRouter,
   Navigate,
@@ -11,19 +13,28 @@ import MainPage from "./pages/MainPage";
 import AppLayout from "./pages/AppLayout";
 import Login from "./pages/Login";
 import CityList from "./components/CityList";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
+const BASE_URL = "http://localhost:9000";
 function App() {
   const [cities, setCities] = useState([]);
-
+  const [Isloading, setIsLoading] = useState(false);
+  console.log(cities);
   useEffect(() => {
     const handleCities = async () => {
       try {
-        const res = await fetch("")
-      } catch (err) {
-        cities(err.message);
+        setIsLoading(true);
+        const res = await fetch(`${BASE_URL}/cities`);
+        const data = await res.json();
+        setCities(data);
+        setIsLoading(false);
+      } catch {
+        alert("There was an effort");
+      } finally {
+        setIsLoading(false);
       }
     };
+    handleCities();
   }, []);
 
   const router = createBrowserRouter([
@@ -49,7 +60,7 @@ function App() {
             },
             {
               path: "cities",
-              element: <CityList />,
+              element: <CityList cities={cities} Isloading={Isloading} />,
             },
             {
               path: "countries",
