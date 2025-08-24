@@ -43,11 +43,11 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "",
       element: <MainPage />,
       children: [
         {
-          path: "/",
+          path: "",
           element: <Homepage />,
         },
         {
