@@ -13,12 +13,14 @@ import MainPage from "./pages/MainPage";
 import AppLayout from "./pages/AppLayout";
 import Login from "./pages/Login";
 import CityList from "./components/CityList";
+import CountriesList from "./components/CountriesList";
 // import { useEffect } from "react";
 
 const BASE_URL = "http://localhost:9000";
 function App() {
   const [cities, setCities] = useState([]);
   const [Isloading, setIsLoading] = useState(false);
+
   // console.log(cities);
   useEffect(() => {
     const handleCities = async () => {
@@ -64,7 +66,7 @@ function App() {
             },
             {
               path: "countries",
-              element: <p>Countries</p>,
+              element: <CountriesList />,
             },
             {
               path: "form",
