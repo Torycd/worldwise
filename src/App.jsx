@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-
 import {
   createBrowserRouter,
   Navigate,
   RouterProvider,
 } from "react-router-dom";
+
+
 import Homepage from "./pages/Homepage";
 import Product from "./pages/Product";
 import Pricing from "./pages/Pricing";
@@ -13,7 +14,8 @@ import MainPage from "./pages/MainPage";
 import AppLayout from "./pages/AppLayout";
 import Login from "./pages/Login";
 import CityList from "./components/CityList";
-import CountriesList from "./components/CountriesList";
+import CountriesList from "./components/CountryList";
+import City from "./components/City";
 // import { useEffect } from "react";
 
 const BASE_URL = "http://localhost:9000";
@@ -65,8 +67,11 @@ function App() {
               element: <CityList cities={cities} Isloading={Isloading} />,
             },
             {
+              path:'cities/:id', element: <City />
+            },
+            {
               path: "countries",
-              element: <CountriesList />,
+              element: <CountriesList cities={cities} Isloading={Isloading} />,
             },
             {
               path: "form",
