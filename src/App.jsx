@@ -5,7 +5,6 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-
 import Homepage from "./pages/Homepage";
 import Product from "./pages/Product";
 import Pricing from "./pages/Pricing";
@@ -16,6 +15,7 @@ import Login from "./pages/Login";
 import CityList from "./components/CityList";
 import CountriesList from "./components/CountryList";
 import City from "./components/City";
+import Form from "./components/Form";
 // import { useEffect } from "react";
 
 const BASE_URL = "http://localhost:9000";
@@ -67,7 +67,8 @@ function App() {
               element: <CityList cities={cities} Isloading={Isloading} />,
             },
             {
-              path:'cities/:id', element: <City />
+              path: "cities/:id",
+              element: <City />,
             },
             {
               path: "countries",
@@ -75,7 +76,7 @@ function App() {
             },
             {
               path: "form",
-              element: <p>Form</p>,
+              element: <Form />,
             },
           ],
         },
