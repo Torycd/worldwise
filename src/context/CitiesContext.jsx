@@ -3,6 +3,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 const BASE_URL = "http://localhost:9000";
 
 const CitiesContext = createContext();
+
 function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [Isloading, setIsLoading] = useState(false);
@@ -37,14 +38,11 @@ function CitiesProvider({ children }) {
   );
 }
 
-
-function usePost() {
-  const context = useContext(CitiesProvider);
+function useCities() {
+  const context = useContext(CitiesContext);
+  if (context === undefined)
+    throw new Error("Cities Context was used outside the CitiesProvider");
   return context;
 }
 
-export { CitiesProvider, usePost };
-
-// CitiesProvider.propTypes = {
-//   children: PropTypes.node,
-// };
+export { CitiesProvider, useCities };
